@@ -29,3 +29,5 @@ vote_nul
 
 decrypt
 - decrypt the results using the secret key from the keys directory# tfhe_vaxxbox
+
+The application gets it name from the similarity of the algorithm to a real life situation how a physical voting box could be passed in a chain (or tree) between participants after each has inserted their secret vote. 
