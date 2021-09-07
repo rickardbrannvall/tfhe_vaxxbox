@@ -5,9 +5,9 @@ fn main() -> Result<(), CryptoAPIError> {
 
     let encfile = "box.enc";
 
-    let _abstain: Vec<f64> = vec![0., 0.];
-    let _affirm: Vec<f64> = vec![0., 1.];
-    let _vote_no: Vec<f64> = vec![1., 0.];
+    let _abstain: Vec<f64> = vec![0., 0., 1.];
+    let _affirm: Vec<f64> = vec![0., 1., 0.];
+    let _vote_no: Vec<f64> = vec![1., 0., 0.];
         
     let mut c0 = VectorLWE::load(&encfile).unwrap();
 

@@ -13,12 +13,12 @@ fn main() -> Result<(), CryptoAPIError> {
     // create an encoder
     let enc = Encoder::new(0., 63., 8, 1)?;
 
-    let m0: Vec<f64> = vec![0., 0.];
-    println!("plaintext value {:?}\n", m0);
+    let m0: Vec<f64> = vec![0., 0., 0.];
+    println!("create zero vector {:?}\n", m0);
     
     let c0 = VectorLWE::encode_encrypt(&sk0, &m0, &enc)?;  
-    println!("encrypted zero {:?}", c0.decrypt_decode(&sk0).unwrap());
-    c0.pp();
+    //println!("encrypted zero {:?}", c0.decrypt_decode(&sk0).unwrap());
+    //c0.pp();
 
     c0.save(&encfile).unwrap();
     
