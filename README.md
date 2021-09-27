@@ -1,10 +1,12 @@
 # tfhe_vaxxbox
 
-A confidential counter for full vaccination against covid-19 under homomorphic encryption in the Concrete (TFHE) library for the Rust programming language. Participants register their full vaccination status (yes, no, prefer not to tell) which is added to running sums that are communicated in a ring-type directed graph (think call chain). 
+A confidential counter for vaccination status (against e.g. covid-19) that accumulates counts under homomorphic encryption in order to provide privacy preservation by design. Participants register their full vaccination status (Yes, No, or Prefer not to tell) which is added to running sums that are communicated in a ring-type directed graph (think call chain). The applicaiton is implemented in the Concrete (TFHE) library for the Rust programming language. 
 
 1. The administrator initiates the sum by sending encrypted zeros to the first person on the chain, 
 2. each participant votes and then pass the running sums to the next person on the chain, 
 3. which stops at full circle with the admininstrator who has the key to decode the result. 
+
+As all additions are done under homomorphic encryption without access to the private key, the accummulated counts can not be disentangled to attribute any individual's status (except in the corner case of absolute unity, i.e. when all participants vote the same).
 
 create_keys 
 - run this to create a secret key for encryption (no need for key switching and bootstrap keys)
